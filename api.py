@@ -15,7 +15,8 @@ def lookup():
         "9123456789": {"name": "Amit", "city": "Mumbai"}
     }
 
+    if not number:
+        return jsonify({"error": "number required"})
+
     result = database.get(number, {"error": "not found"})
     return jsonify(result)
-
-app.run(host="0.0.0.0", port=10000)
